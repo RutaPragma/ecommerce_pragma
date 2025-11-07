@@ -488,16 +488,20 @@ packages:
   pragma_design_system:
     dependency: "direct main"
     description:
-      path: "/Users/jhonyrenteria/StudioProjects/pragma_design_system"
-      relative: false
-    source: path
+      path: "."
+      ref: main
+      resolved-ref: "6399fdb7e571095128a99710854d26e583c01504"
+      url: "https://github.com/RutaPragma/pragma_design_system.git"
+    source: git
     version: "0.0.1"
   reading_api_data_dart:
     dependency: "direct main"
     description:
-      path: "/Users/jhonyrenteria/StudioProjects/reading_api_data_dart"
-      relative: false
-    source: path
+      path: "."
+      ref: main
+      resolved-ref: "05795cc7ff3b1662e15a1a6d694802a1607a126b"
+      url: "https://github.com/RutaPragma/reading_api_data_dart.git"
+    source: git
     version: "1.0.0"
   riverpod:
     dependency: transitive

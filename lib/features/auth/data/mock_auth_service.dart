@@ -64,6 +64,8 @@ class MockAuthService {
     );
 
     _users.add(newUser);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_currentUserKey, jsonEncode(newUser.toJson()));
     await _saveUsers();
     return newUser;
   }

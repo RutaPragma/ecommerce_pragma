@@ -18,17 +18,17 @@ dependencies:
   go_router: ^16.2.2
   flutter_native_splash: ^2.4.6
   flutter_launcher_icons: ^0.14.4
-  pragma_design_system:
-    path: /Users/jhonyrenteria/StudioProjects/pragma_design_system
-  reading_api_data_dart:
-    path: /Users/jhonyrenteria/StudioProjects/reading_api_data_dart
   flutter_riverpod: ^2.6.1
   flutter_dotenv: ^6.0.0
   shared_preferences: ^2.5.3
-  # pragma_design_system:
-  #   git:
-  #     url: https://github.com/RutaPragma/pragma_design_system.git
-  #     ref: main
+  pragma_design_system:
+    git:
+      url: https://github.com/RutaPragma/pragma_design_system.git
+      ref: main
+  reading_api_data_dart:
+    git:
+      url: https://github.com/RutaPragma/reading_api_data_dart.git
+      ref: main
 
 dev_dependencies:
   flutter_test:
