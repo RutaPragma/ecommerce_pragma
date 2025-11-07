@@ -1,0 +1,172 @@
+{
+  "app_title": "Aplicación Básica",
+  "auth_page": {
+    "logoPath": "assets/img/logo.png",
+    "loginTitle": "Ecommerce Pragma",
+    "registerTitle": "Únete a nuestra comunidad",
+    "loginConfig": {
+      "title": "Bienvenido de nuevo",
+      "subtitle": "Ingresa tus credenciales",
+      "emailLabel": "Correo",
+      "emailHint": "usuario@correo.com",
+      "passwordLabel": "Clave",
+      "passwordHint": "Tu contraseña segura",
+      "forgotPasswordText": "Recuperar acceso",
+      "buttonLabel": "Iniciar sesión",
+      "minPasswordLength": 8,
+      "emailRequired": "El correo no puede estar vacío",
+      "emailInvalid": "Formato de correo incorrecto",
+      "passwordRequired": "Debes ingresar tu contraseña",
+      "passwordTooShort": "La contraseña es demasiado corta"
+    },
+    "socialButtons": [
+      {
+        "label": "Continuar con Google",
+        "icon": "google",
+        "onPressed": "googleLogin"
+      },
+      {
+        "label": "Continuar con Google",
+        "icon": "apple",
+        "onPressed": "googleLogin"
+      }
+    ],
+    "registerConfig": {
+      "title": "Crea tu cuenta",
+      "subtitle": "Regístrate para continuar",
+      "nameLabel": "Nombre y apellido",
+      "nameHint": "Ejemplo: Jhony Rentería",
+      "emailLabel": "Correo",
+      "emailHint": "usuario@correo.com",
+      "passwordLabel": "Contraseña",
+      "passwordHint": "Mínimo 8 caracteres",
+      "confirmPasswordLabel": "Repetir contraseña",
+      "confirmPasswordHint": "Confirma tu contraseña",
+      "buttonLabel": "Registrarme ahora",
+      "minPasswordLength": 8,
+      "nameRequired": "El nombre es obligatorio",
+      "emailRequired": "El correo es obligatorio",
+      "emailInvalid": "Formato de correo inválido",
+      "passwordRequired": "La contraseña es obligatoria",
+      "passwordTooShort": "Debe tener al menos 8 caracteres",
+      "confirmPasswordRequired": "Confirma la contraseña",
+      "passwordsNotMatch": "Las contraseñas no coinciden"
+    }
+  },
+  "dashboard": {
+    "menuWidget": {
+      "item1": "Inicio",
+      "item2": "Carro",
+      "item3": "Perfil"
+    },
+    "productsWidget": {
+      "title": "Inicio",
+      "emptyImagePath": "assets/img/empty.png",
+      "banner": {
+        "imageUrl": "https://picsum.photos/800/300",
+        "title": "Ofertas de la Semana",
+        "subtitle": "Hasta 10% de descuento en electrónicos"
+      },
+      "sections": [
+        { "title": "Ofertas relámpago", "products": [], "grid": true },
+        { "title": "Recomendados para ti", "grid": true, "products": [] }
+      ]
+    },
+    "cartWidget": {
+      "title": "Carrito de Compras",
+      "products": [],
+      "summary": {
+        "subtotal": 0,
+        "shipping": 0,
+        "taxes": 10,
+        "total": 0
+      },
+      "checkoutLabel": "Pagar ahora",
+      "continueLabel": "Seguir explorando"
+    },
+    "profileWidget": {
+      "user": {
+        "name": "",
+        "email": "",
+        "avatarUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmsZOshpHHXGSv16ekVAjfw_VfBn0eJrMazg&s"
+      },
+      "orders": [],
+      "settings": [
+        {
+          "icon": "lock_outline",
+          "title": "Cambiar contraseña",
+          "onTap": ""
+        },
+        {
+          "icon": "notifications_outlined",
+          "title": "Notificaciones",
+          "onTap": ""
+        },
+        {
+          "icon": "help_outline",
+          "title": "Ayuda y soporte",
+          "onTap": ""
+        }
+      ],
+      "onLogout": ""
+    }
+  },
+  "paymentWidget": {
+    "title": "Confirmar compra",
+    "buttonLabel": "Finalizar pedido",
+    "onCheckoutComplete": "",
+    "orderSummary": {
+      "orderId": "ALDF782302570",
+      "orderDate": "",
+      "orderStatus": "Confirmacion",
+      "products": [],
+      "subtotal": "0",
+      "shipping": "0",
+      "discount": "-$0",
+      "total": "0"
+    },
+    "shippingConfig": {
+      "title": "Dirección de envío",
+      "fields": {
+        "name": {
+          "label": "Nombre completo",
+          "hint": "Ej. Juan Pérez",
+          "required": true
+        },
+        "address": { "label": "Dirección", "hint": "Ej. Calle 56 #84 - 33" },
+        "city": { "label": "Ciudad", "hint": "Ej. Cali" },
+        "zip": { "label": "Código postal", "hint": "Ej. 760001" },
+        "phone": { "label": "Teléfono", "hint": "+57 314 723 1734" }
+      },
+      "shippingMethods": [
+        { "label": "Estándar", "subtitle": "3-5 días hábiles" },
+        { "label": "Exprés", "subtitle": "1-2 días hábiles" },
+        { "label": "Internacional", "subtitle": "5-10 días hábiles" }
+      ],
+      "submitLabel": "Confirmar direccion"
+    },
+    "paymentConfig": {
+      "title": "Métodos de pago",
+      "methods": [
+        {
+          "label": "Tarjeta de crédito",
+          "iconPath": "assets/icons/png/visa.png"
+        },
+        {
+          "label": "Nequi / Daviplata",
+          "iconPath": "assets/icons/png/visa.png"
+        },
+        {
+          "label": "Pago contra entrega",
+          "iconPath": "assets/icons/png/visa.png"
+        }
+      ]
+    },
+    "alertMessage": {
+      "confirmError": "Por favor confirma tu dirección de envío...",
+      "selectPayment": "Selecciona un método de pago...",
+      "orderOk": "¡Pedido realizado con éxito!",
+      "addressOk": "Ok, dirección confirmada"
+    }
+  }
+}

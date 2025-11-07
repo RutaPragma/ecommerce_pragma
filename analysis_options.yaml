@@ -1,0 +1,38 @@
+# Este archivo configura las reglas de análisis para Dart y Flutter.
+# Documentación: https://dart.dev/tools/analysis
+# Paquete de reglas: https://pub.dev/packages/flutter_lints
+
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"        # Ignora archivos generados automáticamente
+    - "**/*.freezed.dart"  # Ignora archivos generados por freezed
+    - "build/**"           # Ignora build runner
+
+  errors:
+    missing_required_param: error
+    missing_return: error
+    unused_import: warning
+    dead_code: warning
+
+linter:
+  rules:
+    # Buenas prácticas
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    prefer_final_fields: true
+    prefer_final_locals: true
+
+    # Estilo de código
+    avoid_print: true                # Usa debugPrint o logging en lugar de print
+    prefer_single_quotes: true       # Usa comillas simples por defecto
+    always_use_package_imports: true # Evita imports relativos para consistencia
+
+    # Seguridad y mantenimiento
+    avoid_redundant_argument_values: true
+    avoid_unnecessary_containers: true
+    use_key_in_widget_constructors: true
+    sort_child_properties_last: true
+
+    publish_to: true
