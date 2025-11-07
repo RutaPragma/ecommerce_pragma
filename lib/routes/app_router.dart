@@ -1,9 +1,21 @@
+/// Configuración de rutas para la aplicación de comercio electrónico.
+///
+/// Este archivo define todas las rutas disponibles en la aplicación y
+/// sus respectivas transiciones y configuraciones.
+
 import 'package:ecommerce_pragma/features/features.dart';
 import 'package:ecommerce_pragma/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pragma_design_system/pragma_design_system.dart';
 
+/// Configuración principal del router de la aplicación.
+///
+/// Utiliza [GoRouter] para manejar la navegación y define:
+/// - Ruta inicial
+/// - Transiciones personalizadas
+/// - Paso de parámetros entre rutas
+/// - Animaciones de navegación
 final GoRouter appRouter = GoRouter(
   initialLocation: PathRoutes.auth,
   routes: [
@@ -67,7 +79,6 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: PathRoutes.payments,
       name: 'payments',
-      // builder: (context, state) => Payments(total: null, shipping: null, subtotal: null,),
       pageBuilder: (context, state) {
         final Map<String, String>? extra = state.extra as Map<String, String>?;
 

@@ -1,79 +1,79 @@
 {
-  "app_title": "Aplicación Básica",
+  "app_title": "Basic Application",
   "auth_page": {
     "logoPath": "assets/img/logo.png",
     "loginTitle": "Ecommerce Pragma",
-    "registerTitle": "Únete a nuestra comunidad",
+    "registerTitle": "Join our community",
     "loginConfig": {
-      "title": "Bienvenido de nuevo",
-      "subtitle": "Ingresa tus credenciales",
-      "emailLabel": "Correo",
-      "emailHint": "usuario@correo.com",
-      "passwordLabel": "Clave",
-      "passwordHint": "Tu contraseña segura",
-      "forgotPasswordText": "Recuperar acceso",
-      "buttonLabel": "Iniciar sesión",
+      "title": "Welcome back",
+      "subtitle": "Enter your credentials",
+      "emailLabel": "Email",
+      "emailHint": "user@email.com",
+      "passwordLabel": "Password",
+      "passwordHint": "Your secure password",
+      "forgotPasswordText": "Recover access",
+      "buttonLabel": "Sign in",
       "minPasswordLength": 8,
-      "emailRequired": "El correo no puede estar vacío",
-      "emailInvalid": "Formato de correo incorrecto",
-      "passwordRequired": "Debes ingresar tu contraseña",
-      "passwordTooShort": "La contraseña es demasiado corta"
+      "emailRequired": "Email cannot be empty",
+      "emailInvalid": "Invalid email format",
+      "passwordRequired": "You must enter your password",
+      "passwordTooShort": "Password is too short"
     },
     "socialButtons": [
       {
-        "label": "Continuar con Google",
+        "label": "Continue with Google",
         "icon": "google",
         "onPressed": "googleLogin"
       },
       {
-        "label": "Continuar con Google",
+        "label": "Continue with Google",
         "icon": "apple",
         "onPressed": "googleLogin"
       }
     ],
     "registerConfig": {
-      "title": "Crea tu cuenta",
-      "subtitle": "Regístrate para continuar",
-      "nameLabel": "Nombre y apellido",
-      "nameHint": "Ejemplo: Jhony Rentería",
-      "emailLabel": "Correo",
-      "emailHint": "usuario@correo.com",
-      "passwordLabel": "Contraseña",
-      "passwordHint": "Mínimo 8 caracteres",
-      "confirmPasswordLabel": "Repetir contraseña",
-      "confirmPasswordHint": "Confirma tu contraseña",
-      "buttonLabel": "Registrarme ahora",
+      "title": "Create your account",
+      "subtitle": "Sign up to continue",
+      "nameLabel": "Full name",
+      "nameHint": "Example: Jhony Rentería",
+      "emailLabel": "Email",
+      "emailHint": "user@email.com",
+      "passwordLabel": "Password",
+      "passwordHint": "Minimum 8 characters",
+      "confirmPasswordLabel": "Repeat password",
+      "confirmPasswordHint": "Confirm your password",
+      "buttonLabel": "Register now",
       "minPasswordLength": 8,
-      "nameRequired": "El nombre es obligatorio",
-      "emailRequired": "El correo es obligatorio",
-      "emailInvalid": "Formato de correo inválido",
-      "passwordRequired": "La contraseña es obligatoria",
-      "passwordTooShort": "Debe tener al menos 8 caracteres",
-      "confirmPasswordRequired": "Confirma la contraseña",
-      "passwordsNotMatch": "Las contraseñas no coinciden"
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "passwordRequired": "Password is required",
+      "passwordTooShort": "Must be at least 8 characters",
+      "confirmPasswordRequired": "Confirm the password",
+      "passwordsNotMatch": "Passwords do not match"
     }
   },
   "dashboard": {
     "menuWidget": {
-      "item1": "Inicio",
-      "item2": "Carro",
-      "item3": "Perfil"
+      "item1": "Home",
+      "item2": "Cart",
+      "item3": "Profile"
     },
     "productsWidget": {
-      "title": "Inicio",
+      "title": "Home",
       "emptyImagePath": "assets/img/empty.png",
       "banner": {
         "imageUrl": "https://picsum.photos/800/300",
-        "title": "Ofertas de la Semana",
-        "subtitle": "Hasta 10% de descuento en electrónicos"
+        "title": "Deals of the Week",
+        "subtitle": "Up to 10% off on electronics"
       },
       "sections": [
-        { "title": "Ofertas relámpago", "products": [], "grid": true },
-        { "title": "Recomendados para ti", "grid": true, "products": [] }
+        { "title": "Flash deals", "products": [], "grid": true },
+        { "title": "Recommended for you", "grid": true, "products": [] }
       ]
     },
     "cartWidget": {
-      "title": "Carrito de Compras",
+      "title": "Shopping Cart",
       "products": [],
       "summary": {
         "subtotal": 0,
@@ -81,8 +81,8 @@
         "taxes": 10,
         "total": 0
       },
-      "checkoutLabel": "Pagar ahora",
-      "continueLabel": "Seguir explorando"
+      "checkoutLabel": "Checkout now",
+      "continueLabel": "Continue exploring"
     },
     "profileWidget": {
       "user": {
@@ -94,17 +94,17 @@
       "settings": [
         {
           "icon": "lock_outline",
-          "title": "Cambiar contraseña",
+          "title": "Change password",
           "onTap": ""
         },
         {
           "icon": "notifications_outlined",
-          "title": "Notificaciones",
+          "title": "Notifications",
           "onTap": ""
         },
         {
           "icon": "help_outline",
-          "title": "Ayuda y soporte",
+          "title": "Help and support",
           "onTap": ""
         }
       ],
@@ -112,13 +112,13 @@
     }
   },
   "paymentWidget": {
-    "title": "Confirmar compra",
-    "buttonLabel": "Finalizar pedido",
+    "title": "Confirm purchase",
+    "buttonLabel": "Place order",
     "onCheckoutComplete": "",
     "orderSummary": {
       "orderId": "ALDF782302570",
       "orderDate": "",
-      "orderStatus": "Confirmacion",
+      "orderStatus": "Confirmation",
       "products": [],
       "subtotal": "0",
       "shipping": "0",
@@ -126,30 +126,30 @@
       "total": "0"
     },
     "shippingConfig": {
-      "title": "Dirección de envío",
+      "title": "Shipping address",
       "fields": {
         "name": {
-          "label": "Nombre completo",
-          "hint": "Ej. Juan Pérez",
+          "label": "Full name",
+          "hint": "E.g. John Smith",
           "required": true
         },
-        "address": { "label": "Dirección", "hint": "Ej. Calle 56 #84 - 33" },
-        "city": { "label": "Ciudad", "hint": "Ej. Cali" },
-        "zip": { "label": "Código postal", "hint": "Ej. 760001" },
-        "phone": { "label": "Teléfono", "hint": "+57 314 723 1734" }
+        "address": { "label": "Address", "hint": "E.g. 56th St #84 - 33" },
+        "city": { "label": "City", "hint": "E.g. Miami" },
+        "zip": { "label": "Postal code", "hint": "E.g. 33101" },
+        "phone": { "label": "Phone", "hint": "+1 555 123 4567" }
       },
       "shippingMethods": [
-        { "label": "Estándar", "subtitle": "3-5 días hábiles" },
-        { "label": "Exprés", "subtitle": "1-2 días hábiles" },
-        { "label": "Internacional", "subtitle": "5-10 días hábiles" }
+        { "label": "Standard", "subtitle": "3-5 business days" },
+        { "label": "Express", "subtitle": "1-2 business days" },
+        { "label": "International", "subtitle": "5-10 business days" }
       ],
-      "submitLabel": "Confirmar direccion"
+      "submitLabel": "Confirm address"
     },
     "paymentConfig": {
-      "title": "Métodos de pago",
+      "title": "Payment methods",
       "methods": [
         {
-          "label": "Tarjeta de crédito",
+          "label": "Credit card",
           "iconPath": "assets/icons/png/visa.png"
         },
         {
@@ -157,16 +157,16 @@
           "iconPath": "assets/icons/png/visa.png"
         },
         {
-          "label": "Pago contra entrega",
+          "label": "Cash on delivery",
           "iconPath": "assets/icons/png/visa.png"
         }
       ]
     },
     "alertMessage": {
-      "confirmError": "Por favor confirma tu dirección de envío...",
-      "selectPayment": "Selecciona un método de pago...",
-      "orderOk": "¡Pedido realizado con éxito!",
-      "addressOk": "Ok, dirección confirmada"
+      "confirmError": "Please confirm your shipping address...",
+      "selectPayment": "Select a payment method...",
+      "orderOk": "Order placed successfully!",
+      "addressOk": "Ok, address confirmed"
     }
   }
 }

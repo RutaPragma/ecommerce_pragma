@@ -490,7 +490,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "6399fdb7e571095128a99710854d26e583c01504"
+      resolved-ref: "1ae0ea743a5b54a9239af1ae3bcc2da862e4993f"
       url: "https://github.com/RutaPragma/pragma_design_system.git"
     source: git
     version: "0.0.1"

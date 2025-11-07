@@ -1,16 +1,101 @@
-# ecommerce_pragma
+# Ecommerce Pragma
 
-A new Flutter project.
+Este es un proyecto de comercio electrónico desarrollado con Flutter, siguiendo las mejores prácticas de desarrollo y arquitectura limpia.
 
-## Getting Started
+## Descripción
 
-This project is a starting point for a Flutter application.
+Una aplicación de comercio electrónico que implementa funcionalidades modernas y una arquitectura escalable. El proyecto utiliza el patrón de gestión de estado Riverpod y sigue una estructura modular para mejor mantenibilidad.
 
-A few resources to get you started if this is your first Flutter project:
+## Características
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Soporte multiidioma (Español e Inglés)
+- Tema claro y oscuro
+- Autenticación de usuarios
+- Gestión de productos
+- Sistema de pagos
+- Diseño responsive
+- Gestión de estado con Riverpod
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Estructura del Proyecto
+
+```
+lib/
+├── app.dart                # Configuración principal de la aplicación
+├── main.dart              # Punto de entrada de la aplicación
+├── commons/              # Componentes y utilidades comunes
+├── core/                # Funcionalidades centrales
+│   ├── helper/          # Funciones auxiliares
+│   └── localization/    # Manejo de internacionalización
+├── features/            # Módulos principales de la aplicación
+│   ├── auth/           # Autenticación
+│   ├── dashboard/      # Panel principal
+│   ├── payments/       # Sistema de pagos
+│   ├── product/        # Gestión de productos
+│   └── splash/         # Pantalla de inicio
+└── routes/             # Configuración de navegación
+```
+
+## Requisitos Técnicos
+
+- Flutter (última versión estable)
+- Dart SDK
+- API Base URL configurada en variables de entorno
+- Dispositivo o emulador iOS/Android
+
+## Configuración del Proyecto
+
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/RutaPragma/ecommerce_pragma.git
+```
+
+2. Instalar dependencias:
+```bash
+flutter pub get
+```
+
+3. Configurar variables de entorno:
+Crear un archivo `.env` en la raíz del proyecto, puedes basarte en el archivo de ejemplo: `.env.template` 
+
+4. Ejecutar la aplicación:
+```bash
+flutter run
+```
+
+## Arquitectura
+
+El proyecto sigue una arquitectura limpia (Clean Architecture) con las siguientes capas:
+
+- **Presentación**: Widgets y páginas de UI
+- **Lógica de Negocio**: Providers y casos de uso
+- **Datos**: Repositorios y fuentes de datos
+- **Core**: Utilidades y configuraciones base
+
+## Paquetes Principales
+
+- `flutter_riverpod`: Gestión de estado
+- `flutter_dotenv`: Manejo de variables de entorno
+- `pragma_design_system`: Sistema de diseño personalizado
+- `reading_api_data_dart`: Paquete para lectura de datos de API
+- `flutter_localizations`: Soporte para múltiples idiomas
+
+## Convenciones de Código
+
+- Seguimos las convenciones de estilo de Dart/Flutter
+- Utilizamos análisis estático con `analysis_options.yaml`
+- Implementamos pruebas unitarias y de widgets
+
+## Internacionalización
+
+La aplicación soporta múltiples idiomas a través de archivos JSON localizados en:
+```
+assets/lang/
+├── en.json    # Inglés
+└── es.json    # Español
+```
+
+## Temas
+
+La aplicación implementa temas claro y oscuro utilizando el sistema de diseño Pragma:
+- Light Theme: Tema predeterminado para uso diurno
+- Dark Theme: Tema optimizado para uso nocturno
