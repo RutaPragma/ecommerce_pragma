@@ -44,23 +44,20 @@ class _AuthPageState extends ConsumerState<AuthPage> {
 
     final List<DSButton> socialButtons = authConfig.containsKey('socialButtons')
         ? authConfig['socialButtons']
-              .asMap()
-              .map<int, DSButton>(
-                (i, btn) => MapEntry(
-                  i,
-                  DSButton(
-                    key: Key('auth_social_button_${btn['icon'] ?? i}'),
-                    label: btn['label'],
-                    onPressed: _buttonHandlers[btn['onPressed']] ?? () {},
-                    variant: DSButtonVariant.disabled,
-                    backgroundColor: btn['backgroundColor'],
-                    textColor: btn['textColor'],
-                    icon: _iconHandlers[btn['icon']],
-                    isFullWidth: false,
+              .map<DSButton>(
+                (btn) => DSButton(
+                  key: Key(
+                    'auth_social_button_${btn['icon'] ?? btn['indexId']}',
                   ),
+                  label: btn['label'],
+                  onPressed: _buttonHandlers[btn['onPressed']] ?? () {},
+                  variant: DSButtonVariant.disabled,
+                  backgroundColor: btn['backgroundColor'],
+                  textColor: btn['textColor'],
+                  icon: _iconHandlers[btn['icon']],
+                  isFullWidth: false,
                 ),
               )
-              .values
               .toList()
         : [];
 
