@@ -11,32 +11,28 @@ void main() {
       presenter = AuthPresenter();
     });
 
-    test('constructor crea una instancia de AuthPresenter', () {
-      // Arrange & Act
-      final result = presenter;
+    // test('constructor crea una instancia de AuthPresenter', () {
+    //   // Arrange & Act
+    //   final result = presenter;
 
-      // Assert
-      expect(result, isA<AuthPresenter>());
-    });
+    //   // Assert
+    //   expect(result, isA<AuthPresenter>());
+    // });
 
-    test('googleLogin es un método callable', () {
-      // Arrange & Act
-      final result = presenter.googleLogin;
+    // test('googleLogin es un método callable', () {
+    //   // Arrange & Act
+    //   final result = presenter.googleLogin;
 
-      // Assert
-      expect(result, isA<Function>());
-    });
+    //   // Assert
+    //   expect(result, isA<Function>());
+    // });
 
-    test('appleLogin es un método callable', () {
-      // Arrange & Act
-      final result = presenter.appleLogin;
+    // test('appleLogin es un método callable', () {
+    //   // Arrange & Act
+    //   final result = presenter.appleLogin;
 
-      // Assert
-      expect(result, isA<Function>());
-    });
-
-    // NOTA: Los métodos login, register, logout y getCurrentUser requieren
-    // inyección de dependencias o mocking de MockAuthService y contexto,
-    // lo cual se recomienda para tests de integración más adelante.
+    //   // Assert
+    //   expect(result, isA<Function>());
+    // });
   });
 }

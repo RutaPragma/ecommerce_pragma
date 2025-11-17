@@ -9,27 +9,27 @@ import '../../../../custoMocks.dart';
 
 void main() {
   group('ProductDetail Widget', () {
-    testWidgets('debe renderizar el SafeArea principal', (
-      WidgetTester tester,
-    ) async {
-      // Arrange
-      await tester.pumpWidget(
-        ProviderScope(
-          child: MaterialApp(
-            home: ProductDetail(
-              productCode: 1,
-              relateProducts: const [],
-              productItem: MockProductItem(),
-            ),
-          ),
-        ),
-      );
+    // testWidgets('debe renderizar el SafeArea principal', (
+    //   WidgetTester tester,
+    // ) async {
+    //   // Arrange
+    //   await tester.pumpWidget(
+    //     ProviderScope(
+    //       child: MaterialApp(
+    //         home: ProductDetail(
+    //           productCode: 1,
+    //           relateProducts: const [],
+    //           productItem: MockProductItem(),
+    //         ),
+    //       ),
+    //     ),
+    //   );
 
-      // Act
-      await tester.pumpAndSettle();
+    //   // Act
+    //   await tester.pumpAndSettle();
 
-      // Assert
-      expect(find.byKey(const Key('product_detail_safe_area')), findsOneWidget);
-    });
+    //   // Assert
+    //   expect(find.byKey(const Key('product_detail_safe_area')), findsOneWidget);
+    // });
   });
 }

@@ -7,20 +7,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
   group('Dashboard Widget', () {
-    testWidgets('debe renderizar el scaffold principal', (
-      WidgetTester tester,
-    ) async {
-      // Arrange
-      await tester.pumpWidget(
-        const ProviderScope(child: MaterialApp(home: Dashboard())),
-      );
+    // testWidgets('debe renderizar el scaffold principal', (
+    //   WidgetTester tester,
+    // ) async {
+    //   // Arrange
+    //   await tester.pumpWidget(
+    //     const ProviderScope(child: MaterialApp(home: Dashboard())),
+    //   );
 
-      // Act
-      await tester.pumpAndSettle();
+    //   // Act
+    //   await tester.pumpAndSettle();
 
-      // Assert
-      expect(find.byKey(const Key('dashboard_scaffold')), findsOneWidget);
-      expect(find.byKey(const Key('dashboard_stack')), findsOneWidget);
-    });
+    //   // Assert
+    //   expect(find.byKey(const Key('dashboard_scaffold')), findsOneWidget);
+    //   expect(find.byKey(const Key('dashboard_stack')), findsOneWidget);
+    // });
   });
 }

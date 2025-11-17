@@ -1,4 +1,8 @@
 // ignore: file_names
+import 'package:ecommerce_pragma/core/localization/app_localizations.dart';
+import 'package:ecommerce_pragma/features/features.dart';
+import 'package:flutter/material.dart';
+import 'package:mocktail/mocktail.dart' show Mock;
 import 'package:pragma_design_system/pragma_design_system.dart';
 
 class MockProductItem extends ProductItem {
@@ -49,4 +53,31 @@ class ProductItemMock {
   }) {
     return create(id: id, title: title, price: price, amount: amount);
   }
+}
+
+class MockAuthPresenter extends Mock implements AuthPresenter {}
+
+class FakeLocalizations extends AppLocalizations {
+  FakeLocalizations() : super(const Locale('es'));
+  @override
+  Map<String, dynamic> get localizedStrings => {
+    'auth_page': {
+      'socialButtons': [
+        {
+          'label': 'Login with Google',
+          'icon': 'google',
+          'onPressed': 'googleLogin',
+          'backgroundColor': Colors.white,
+          'textColor': Colors.black,
+        },
+        {
+          'label': 'Login with Apple',
+          'icon': 'apple',
+          'onPressed': 'AppleLogin',
+          'backgroundColor': Colors.black,
+          'textColor': Colors.white,
+        },
+      ],
+    },
+  };
 }

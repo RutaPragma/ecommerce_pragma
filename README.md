@@ -99,3 +99,12 @@ assets/lang/
 La aplicación implementa temas claro y oscuro utilizando el sistema de diseño Pragma:
 - Light Theme: Tema predeterminado para uso diurno
 - Dark Theme: Tema optimizado para uso nocturno
+
+
+
+
+### Run test 
+```
+flutter test test/main.dart --coverage &&
+genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html
+```
