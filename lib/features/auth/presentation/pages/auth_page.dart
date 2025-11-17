@@ -44,22 +44,30 @@ class _AuthPageState extends ConsumerState<AuthPage> {
 
     final List<DSButton> socialButtons = authConfig.containsKey('socialButtons')
         ? authConfig['socialButtons']
-              .map<DSButton>(
-                (btn) => DSButton(
-                  label: btn['label'],
-                  onPressed: _buttonHandlers[btn['onPressed']] ?? () {},
-                  variant: DSButtonVariant.disabled,
-                  backgroundColor: btn['backgroundColor'],
-                  textColor: btn['textColor'],
-                  icon: _iconHandlers[btn['icon']],
-                  isFullWidth: false,
+              .asMap()
+              .map<int, DSButton>(
+                (i, btn) => MapEntry(
+                  i,
+                  DSButton(
+                    key: Key('auth_social_button_${btn['icon'] ?? i}'),
+                    label: btn['label'],
+                    onPressed: _buttonHandlers[btn['onPressed']] ?? () {},
+                    variant: DSButtonVariant.disabled,
+                    backgroundColor: btn['backgroundColor'],
+                    textColor: btn['textColor'],
+                    icon: _iconHandlers[btn['icon']],
+                    isFullWidth: false,
+                  ),
                 ),
               )
+              .values
               .toList()
         : [];
 
     return Material(
+      key: const Key('auth_material'),
       child: DSAuthTemplate(
+        key: const Key('auth_template'),
         config: authConfig,
         socialButtons: socialButtons,
         onLogin: (email, password) => presenter.login(context, email, password),

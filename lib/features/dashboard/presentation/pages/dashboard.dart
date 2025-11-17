@@ -43,30 +43,45 @@ class _DashboardState extends ConsumerState<Dashboard> {
     switch (selectNavIndex) {
       case 0:
         content = Products(
+          key: const Key('dashboard_products'),
           config: dashboardLang['productsWidget'],
           listProducts: listProducts,
         );
         break;
       case 1:
-        content = Cart(config: dashboardLang['cartWidget']);
+        content = Cart(
+          key: const Key('dashboard_cart'),
+          config: dashboardLang['cartWidget'],
+        );
         break;
       case 2:
-        content = Profile(config: dashboardLang['profileWidget']);
+        content = Profile(
+          key: const Key('dashboard_profile'),
+          config: dashboardLang['profileWidget'],
+        );
         break;
       default:
-        content = Profile(config: dashboardLang['profileWidget']);
+        content = Profile(
+          key: const Key('dashboard_profile'),
+          config: dashboardLang['profileWidget'],
+        );
     }
 
     return Scaffold(
+      key: const Key('dashboard_scaffold'),
       body: Stack(
+        key: const Key('dashboard_stack'),
         children: [
           content,
           Positioned(
+            key: const Key('dashboard_positioned_icons'),
             top: 15,
             right: 35,
             child: Row(
+              key: const Key('dashboard_row_icons'),
               children: [
                 DSIconCounter(
+                  key: const Key('dashboard_icon_notification'),
                   iconSize: 20,
                   badgeSize: 14,
                   badgeTextSize: 8,
@@ -77,6 +92,7 @@ class _DashboardState extends ConsumerState<Dashboard> {
                 ),
                 const SizedBox(width: 10),
                 DSIconCounter(
+                  key: const Key('dashboard_icon_cart'),
                   iconSize: 20,
                   badgeSize: 14,
                   badgeTextSize: 8,
@@ -92,6 +108,7 @@ class _DashboardState extends ConsumerState<Dashboard> {
         ],
       ),
       bottomNavigationBar: DSBottomNav(
+        key: const Key('dashboard_bottom_nav'),
         currentIndex: selectNavIndex,
         items: [
           DSBottomNavItem(

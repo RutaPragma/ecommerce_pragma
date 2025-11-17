@@ -2,7 +2,6 @@
 ///
 /// Este archivo define todas las rutas disponibles en la aplicación y
 /// sus respectivas transiciones y configuraciones.
-
 import 'package:ecommerce_pragma/features/features.dart';
 import 'package:ecommerce_pragma/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -19,22 +18,28 @@ import 'package:pragma_design_system/pragma_design_system.dart';
 final GoRouter appRouter = GoRouter(
   initialLocation: PathRoutes.auth,
   routes: [
+    /// Ruta para la pantalla Splash.
     GoRoute(
       path: PathRoutes.splash,
       name: 'splash',
       builder: (context, state) => const SplashPage(),
     ),
+
+    /// Ruta para la pantalla de autenticación.
     GoRoute(
       path: PathRoutes.auth,
       name: 'auth',
       builder: (context, state) => const AuthPage(),
     ),
+
+    /// Ruta para el dashboard principal.
     GoRoute(
       path: PathRoutes.dashboard,
       name: 'dashboard',
       builder: (context, state) => const Dashboard(),
     ),
 
+    /// Ruta para el detalle de producto con transición personalizada.
     GoRoute(
       path: PathRoutes.productDetail,
       name: 'product_detail',
@@ -76,6 +81,8 @@ final GoRouter appRouter = GoRouter(
         );
       },
     ),
+
+    /// Ruta para la pantalla de pagos con transición personalizada.
     GoRoute(
       path: PathRoutes.payments,
       name: 'payments',

@@ -58,6 +58,7 @@ class _ProductsState extends ConsumerState<Products> {
           return SafeArea(
             bottom: false,
             child: DSHomeTemplate(
+              key: const Key('products_home_template'),
               selectIndex: selectNavIndex,
               boxFitImage: BoxFit.scaleDown,
               showImageTopSpacing: true,

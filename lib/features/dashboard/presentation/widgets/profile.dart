@@ -13,10 +13,16 @@ class Profile extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return FutureBuilder(
+      key: const Key('profile_future_builder'),
       future: presenter.getCurrentUser(),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         if (!snapshot.hasData) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+            key: Key('profile_loading_center'),
+            child: CircularProgressIndicator(
+              key: Key('profile_loading_indicator'),
+            ),
+          );
         }
 
         final user = snapshot.data!;
@@ -34,7 +40,13 @@ class Profile extends ConsumerWidget {
           presenter.logout();
         };
 
-        return SafeArea(child: DSProfileTemplate(config: config));
+        return SafeArea(
+          key: const Key('profile_safe_area'),
+          child: DSProfileTemplate(
+            key: const Key('profile_template'),
+            config: config,
+          ),
+        );
       },
     );
   }

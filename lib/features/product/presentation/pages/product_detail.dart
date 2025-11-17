@@ -47,14 +47,24 @@ class _ProductDetailState extends ConsumerState<ProductDetail> {
     final itemsCart = ref.watch(carItemsNotifierProvider);
 
     return SafeArea(
+      key: const Key('product_detail_safe_area'),
       child: switch (productState) {
-        ProductsLoading() => const Center(child: CircularProgressIndicator()),
+        ProductsLoading() => const Center(
+          key: Key('product_detail_loading_center'),
+          child: CircularProgressIndicator(
+            key: Key('product_detail_loading_indicator'),
+          ),
+        ),
 
         ProductsListLoaded() => const Center(
-          child: CircularProgressIndicator(),
+          key: Key('product_detail_list_loaded_center'),
+          child: CircularProgressIndicator(
+            key: Key('product_detail_list_loaded_indicator'),
+          ),
         ),
 
         ProductDetailLoaded(:final product) => DSProductDetailPage(
+          key: const Key('product_detail_page'),
           config: {
             'product': {
               'title': product.title,
@@ -79,7 +89,12 @@ class _ProductDetailState extends ConsumerState<ProductDetail> {
               .addProduct(widget.productItem),
         ),
 
-        ProductsError() => const Center(child: CircularProgressIndicator()),
+        ProductsError() => const Center(
+          key: Key('product_detail_error_center'),
+          child: CircularProgressIndicator(
+            key: Key('product_detail_error_indicator'),
+          ),
+        ),
       },
     );
   }

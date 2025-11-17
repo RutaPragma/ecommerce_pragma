@@ -1,11 +1,18 @@
 /// Biblioteca que contiene la configuración principal de la aplicación Flutter.
-/// 
+///
 /// Este archivo define la estructura base de la aplicación, incluyendo:
 /// - Configuración de temas
 /// - Configuración de rutas
 /// - Configuración de internacionalización
 /// - Configuración del MaterialApp
 
+/// Biblioteca que contiene la configuración principal de la aplicación Flutter.
+///
+/// Este archivo define la estructura base de la aplicación, incluyendo:
+/// - Configuración de temas
+/// - Configuración de rutas
+/// - Configuración de internacionalización
+/// - Configuración del MaterialApp
 import 'package:flutter/material.dart';
 import 'package:ecommerce_pragma/core/localization/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -20,6 +27,7 @@ import 'package:pragma_design_system/pragma_design_system.dart' as app_theme;
 /// - Soporte para múltiples idiomas
 /// - Delegados de localización
 class MyApp extends StatelessWidget {
+  /// Crea una instancia de [MyApp].
   const MyApp({super.key});
 
   @override

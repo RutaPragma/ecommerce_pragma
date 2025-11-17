@@ -27,6 +27,7 @@ class _AnimatedSplashState extends State<AnimatedSplash>
     final bool isDark = theme.brightness == Brightness.dark;
 
     return Scaffold(
+      key: const Key('animated_splash_scaffold'),
       backgroundColor: Colors.white,
       body: Center(
         child: Column(
@@ -34,12 +35,17 @@ class _AnimatedSplashState extends State<AnimatedSplash>
           children: [
             FadeTransition(
               opacity: _controller,
-              child: Image.asset('assets/img/logo.png', width: 120),
+              child: Image.asset(
+                'assets/img/logo.png',
+                width: 120,
+                key: const Key('splash_logo_img'),
+              ),
             ),
             FadeTransition(
               opacity: _controller,
               child: Text(
                 'Ecommerce',
+                key: const Key('splash_logo_text'),
                 style: DSTypography.displayXLBold.copyWith(
                   color: isDark
                       ? DSColorsFoundations.brandSecondaryDark

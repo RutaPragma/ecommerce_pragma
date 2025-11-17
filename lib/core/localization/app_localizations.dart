@@ -3,19 +3,26 @@ import 'package:ecommerce_pragma/core/localization/app_localizations_delegate.da
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
+/// Clase que gestiona la localización y traducción de textos en la aplicación.
 class AppLocalizations {
+  /// Idioma actual de la aplicación.
   final Locale locale;
+
   late Map<String, dynamic> _localizedStrings;
 
+  /// Crea una instancia de [AppLocalizations] para el [locale] dado.
   AppLocalizations(this.locale);
 
+  /// Delegado de localización para Flutter.
   static const LocalizationsDelegate<AppLocalizations> delegate =
       AppLocalizationsDelegate();
 
+  /// Obtiene la instancia de [AppLocalizations] desde el contexto.
   static AppLocalizations of(BuildContext context) {
     return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
   }
 
+  /// Carga el archivo de traducción correspondiente al idioma.
   Future<bool> load() async {
     final jsonString = await rootBundle.loadString(
       'assets/lang/${locale.languageCode}.json',
@@ -27,8 +34,11 @@ class AppLocalizations {
     return true;
   }
 
+  /// Devuelve el mapa de traducciones cargado.
   Map<String, dynamic> get localizedStrings => _localizedStrings;
 
+  /// Traduce una clave [key] usando el mapa de traducciones cargado.
+  /// Si la clave no existe, retorna '** key not found **'.
   String translate(String key) {
     final keys = key.split('.');
     dynamic value = _localizedStrings;

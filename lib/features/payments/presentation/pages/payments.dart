@@ -42,19 +42,41 @@ class Payments extends ConsumerWidget {
     config['orderSummary']['subtotal'] = subtotal;
     config['orderSummary']['shipping'] = shipping;
     config['orderSummary']['total'] = total;
+
     config['onAddressComplete'] = (data) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(config['alertMessage']['addressOk'])),
+        SnackBar(
+          key: const Key('payments_snackbar_address'),
+          content: Text(
+            config['alertMessage']['addressOk'],
+            key: const Key('payments_snackbar_address_text'),
+          ),
+        ),
       );
     };
     config['onCheckoutComplete'] = (data) {
       ref.read(carItemsNotifierProvider.notifier).reset();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(config['alertMessage']['orderOk'])),
+        SnackBar(
+          key: const Key('payments_snackbar_order'),
+          content: Text(
+            config['alertMessage']['orderOk'],
+            key: const Key('payments_snackbar_order_text'),
+          ),
+        ),
       );
       context.pop();
     };
 
-    return SafeArea(child: DSCheckoutTemplate(config: config));
+    return SafeArea(
+      key: const Key('payments_safe_area'),
+      child: Material(
+        key: const Key('payments_material'),
+        child: DSCheckoutTemplate(
+          key: const Key('payments_checkout_template'),
+          config: config,
+        ),
+      ),
+    );
   }
 }

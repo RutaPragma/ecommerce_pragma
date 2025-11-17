@@ -40,17 +40,21 @@ class Cart extends ConsumerWidget {
     config['onContinueShopping'] = () =>
         ref.read(navBarIndexNotifierProvider.notifier).setValue(0);
 
-    return DSCartTemplate(
-      config: config,
-      onRemove: (id) {
-        ref.read(carItemsNotifierProvider.notifier).deleteAmount(id);
-      },
-      onAdd: (id) {
-        ref.read(carItemsNotifierProvider.notifier).addAmount(id);
-      },
-      onDelete: (id) {
-        ref.read(carItemsNotifierProvider.notifier).removeProduct(id);
-      },
+    return SafeArea(
+      key: const Key('cart_safe_area'),
+      child: DSCartTemplate(
+        key: const Key('cart_template'),
+        config: config,
+        onRemove: (id) {
+          ref.read(carItemsNotifierProvider.notifier).deleteAmount(id);
+        },
+        onAdd: (id) {
+          ref.read(carItemsNotifierProvider.notifier).addAmount(id);
+        },
+        onDelete: (id) {
+          ref.read(carItemsNotifierProvider.notifier).removeProduct(id);
+        },
+      ),
     );
   }
 }

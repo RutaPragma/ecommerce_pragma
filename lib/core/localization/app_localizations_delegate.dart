@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ecommerce_pragma/core/localization/app_localizations.dart';
 
+/// Delegado de localización para cargar los archivos de traducción.
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
+  /// Crea un [AppLocalizationsDelegate].
   const AppLocalizationsDelegate();
 
   @override

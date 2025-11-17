@@ -23,6 +23,9 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(child: AnimatedSplash());
+    return const SafeArea(
+      key: Key('splash_safe_area'),
+      child: AnimatedSplash(key: Key('splash_animated')),
+    );
   }
 }
