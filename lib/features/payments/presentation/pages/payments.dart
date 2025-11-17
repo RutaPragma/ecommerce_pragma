@@ -1,10 +1,14 @@
-import 'package:ecommerce_pragma/commons/state/car_items_provider.dart';
-import 'package:ecommerce_pragma/core/localization/app_localizations.dart';
+import 'package:ecommerce_pragma/commons/state/state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pragma_design_system/pragma_design_system.dart';
 
+/// Página de pagos y checkout.
+///
+/// Muestra el resumen del pedido y permite completar el pago
+/// utilizando inyección de dependencia para [AppLocalizations]
+/// mediante [localizationProvider].
 class Payments extends ConsumerWidget {
   const Payments({
     super.key,
@@ -13,15 +17,21 @@ class Payments extends ConsumerWidget {
     required this.subtotal,
   });
 
+  /// Monto total del pedido.
   final String total;
+
+  /// Costo de envío.
   final String shipping;
+
+  /// Subtotal del pedido.
   final String subtotal;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final itemsCar = ref.watch(carItemsNotifierProvider);
 
-    final AppLocalizations language = AppLocalizations.of(context);
+    /// Obtiene [AppLocalizations] desde el provider inyectado.
+    final language = ref.watch(localizationProvider);
     final Map<String, dynamic> config =
         language.localizedStrings['paymentWidget'];
 

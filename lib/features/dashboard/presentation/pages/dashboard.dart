@@ -1,5 +1,5 @@
 import 'package:ecommerce_pragma/commons/commons.dart';
-import 'package:ecommerce_pragma/core/localization/app_localizations.dart';
+import 'package:ecommerce_pragma/commons/state/state.dart';
 import 'package:ecommerce_pragma/features/dashboard/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:pragma_design_system/pragma_design_system.dart';
@@ -8,6 +8,11 @@ import 'package:reading_api_data_dart/domain/entities/product_entities/product.d
 import 'package:reading_api_data_dart/presentation/state/notifier/product_state.dart';
 import 'package:reading_api_data_dart/presentation/state/notifier/products_notifier.dart';
 
+/// Página principal del dashboard.
+///
+/// Muestra productos, carrito y perfil del usuario utilizando
+/// inyección de dependencia para [AppLocalizations] mediante
+/// [localizationProvider].
 class Dashboard extends ConsumerStatefulWidget {
   const Dashboard({super.key});
 
@@ -15,8 +20,12 @@ class Dashboard extends ConsumerStatefulWidget {
   ConsumerState<Dashboard> createState() => _DashboardState();
 }
 
+/// Estado de [Dashboard].
 class _DashboardState extends ConsumerState<Dashboard> {
+  /// Lista de productos cargados desde la API.
   List<Product> listProducts = [];
+
+  /// Configuración localizada del dashboard.
   Map<String, dynamic> dashboardLang = {};
 
   @override
@@ -28,7 +37,8 @@ class _DashboardState extends ConsumerState<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations language = AppLocalizations.of(context);
+    /// Obtiene [AppLocalizations] desde el provider inyectado.
+    final language = ref.watch(localizationProvider);
     dashboardLang = language.localizedStrings['dashboard'];
     final selectNavIndex = ref.watch(navBarIndexNotifierProvider);
     final state = ref.watch(productsNotifierProvider);
