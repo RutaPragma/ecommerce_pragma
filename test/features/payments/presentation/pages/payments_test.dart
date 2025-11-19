@@ -1,5 +1,6 @@
 // test/features/payments/presentation/pages/payments_test.dart
 
+    // });
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ecommerce_pragma/features/payments/presentation/pages/payments.dart';
@@ -29,6 +30,5 @@ void main() {
     //   find.byKey(const Key('payments_checkout_template')),
     //   findsOneWidget,
     // );
-    // });
   });
 }

@@ -37,7 +37,7 @@ class _AuthPageState extends ConsumerState<AuthPage> {
   @override
   void initState() {
     super.initState();
-    presenter = AuthPresenter();
+    presenter = AuthPresenter(authService: MockAuthService());
 
     _buttonHandlers = {
       'googleLogin': presenter.googleLogin,

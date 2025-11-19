@@ -1,41 +1,97 @@
 import 'package:ecommerce_pragma/commons/state/state.dart';
 import 'package:ecommerce_pragma/features/auth/auth.dart';
-import 'package:ecommerce_pragma/features/auth/presentation/pages/auth_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mocktail/mocktail.dart';
-import 'package:pragma_design_system/pragma_design_system.dart';
+import 'package:flutter_test/flutter_test.dart';
 
+import '../../../../base_widget.dart';
 import '../../../../custoMocks.dart';
 
-/// Override del provider de localización para pruebas
-final overrideLocalizationProvider = localizationProvider.overrideWith(
-  (ref) => FakeLocalizations(),
-);
-
+/// Pruebas de la capa de presentación para [AuthPage].
 void main() {
-  late MockAuthPresenter mockPresenter;
-
-  setUpAll(() {
-    registerFallbackValue(Container());
-  });
+  late Override overrideLocalizationProvider;
 
   setUp(() {
-    mockPresenter = MockAuthPresenter();
-
-    // Stub de los métodos
-    when(() => mockPresenter.googleLogin()).thenAnswer((_) async {});
-    when(() => mockPresenter.appleLogin()).thenAnswer((_) async {});
+    overrideLocalizationProvider = localizationProvider.overrideWith(
+      (ref) => FakeAppLocalizations(),
+    );
   });
 
-  Widget createTestWidget() {
-    return ProviderScope(
-      overrides: [
-        overrideLocalizationProvider,
-        // Se reemplaza la creación del presenter
-      ],
-      child: const MaterialApp(home: AuthPage()),
+  /// Monta [AuthPage] aplicando los overrides necesarios.
+  Future<void> pumpAuthPage(
+    WidgetTester tester, {
+    Override? localizationOverride,
+  }) async {
+    await BaseWidget(
+      child: const AuthPage(),
+      overrides: [localizationOverride ?? overrideLocalizationProvider],
+    ).mount(tester);
+  }
+
+  group('AuthPage - UI rendering', () {
+    testWidgets('Muestra Material y DSAuthTemplate', (tester) async {
+      // Arrange
+      await pumpAuthPage(tester);
+
+      // Act
+      final materialFinder = find.byKey(const Key('auth_material'));
+      final templateFinder = find.byKey(const Key('auth_template'));
+
+      // Assert
+      expect(materialFinder, findsOneWidget);
+      expect(templateFinder, findsOneWidget);
+    });
+
+    testWidgets('Renderiza los botones sociales configurados', (tester) async {
+      // Arrange
+      await pumpAuthPage(tester);
+
+      // Act
+      final googleButton = find.byKey(const Key('auth_social_button_google'));
+      final appleButton = find.byKey(const Key('auth_social_button_apple'));
+      final googleLabel = find.text('Continuar con Google');
+
+      // Assert
+      expect(googleButton, findsOneWidget);
+      expect(appleButton, findsOneWidget);
+      expect(googleLabel, findsWidgets);
+    });
+
+    testWidgets(
+      'No renderiza botones sociales cuando la configuración no los incluye',
+      (tester) async {
+        // Arrange
+        final overrideWithoutSocialButtons = localizationProvider.overrideWith(
+          (ref) => FakeAppLocalizationsNoSocial(),
+        );
+
+        await pumpAuthPage(
+          tester,
+          localizationOverride: overrideWithoutSocialButtons,
+        );
+
+        // Act
+        final socialButtons = find.byKey(
+          const Key('auth_social_button_google'),
+        );
+
+        // Assert
+        expect(socialButtons, findsNothing);
+      },
     );
+  });
+}
+
+/// Localización falsa sin configuración de botones sociales.
+class FakeAppLocalizationsNoSocial extends FakeAppLocalizations {
+  @override
+  Map<String, dynamic> get localizedStrings {
+    final base = Map<String, dynamic>.from(super.localizedStrings);
+    final authPageConfig = Map<String, dynamic>.from(
+      base['auth_page'] as Map<String, dynamic>,
+    );
+    authPageConfig.remove('socialButtons');
+    base['auth_page'] = authPageConfig;
+    return base;
   }
 }
