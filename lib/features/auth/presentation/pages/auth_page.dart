@@ -1,9 +1,14 @@
-import 'package:ecommerce_pragma/core/localization/app_localizations.dart';
+import 'package:ecommerce_pragma/commons/state/state.dart';
 import 'package:ecommerce_pragma/features/auth/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pragma_design_system/pragma_design_system.dart';
 
+/// Página de autenticación que gestiona login y registro.
+///
+/// Utiliza inyección de dependencia mediante [localizationProvider]
+/// para acceder a las traducciones, eliminando la dependencia directa
+/// a [BuildContext] para localización.
 class AuthPage extends ConsumerStatefulWidget {
   const AuthPage({super.key});
 
@@ -11,11 +16,15 @@ class AuthPage extends ConsumerStatefulWidget {
   ConsumerState<AuthPage> createState() => _AuthPageState();
 }
 
+/// Estado de [AuthPage].
 class _AuthPageState extends ConsumerState<AuthPage> {
+  /// Presentador de la lógica de autenticación.
   late final AuthPresenter presenter;
 
+  /// Mapa de manejadores para botones de acción.
   late Map<String, dynamic> _buttonHandlers;
 
+  /// Mapa de iconos para botones sociales.
   Map<String, DSIcon> get _iconHandlers => {
     'google': const DSIcon(
       icon: Icons.g_mobiledata,
@@ -28,7 +37,7 @@ class _AuthPageState extends ConsumerState<AuthPage> {
   @override
   void initState() {
     super.initState();
-    presenter = AuthPresenter();
+    presenter = AuthPresenter(authService: MockAuthService());
 
     _buttonHandlers = {
       'googleLogin': presenter.googleLogin,
@@ -38,7 +47,8 @@ class _AuthPageState extends ConsumerState<AuthPage> {
 
   @override
   Widget build(BuildContext context) {
-    final language = AppLocalizations.of(context);
+    /// Obtiene [AppLocalizations] desde el provider inyectado.
+    final language = ref.watch(localizationProvider);
     final Map<String, dynamic> authConfig =
         language.localizedStrings['auth_page'];
 

@@ -25,5 +25,6 @@
         "allprojects",
         "contraseña",
         "registrado"
-    ]
+    ],
+    "chatgpt.openOnStartup": true
 }

@@ -5,16 +5,8 @@
 /// - Configuración de rutas
 /// - Configuración de internacionalización
 /// - Configuración del MaterialApp
-
-/// Biblioteca que contiene la configuración principal de la aplicación Flutter.
-///
-/// Este archivo define la estructura base de la aplicación, incluyendo:
-/// - Configuración de temas
-/// - Configuración de rutas
-/// - Configuración de internacionalización
-/// - Configuración del MaterialApp
+import 'package:ecommerce_pragma/core/localization/localization.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_pragma/core/localization/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:ecommerce_pragma/routes/app_router.dart';
 import 'package:pragma_design_system/pragma_design_system.dart' as app_theme;
@@ -26,6 +18,7 @@ import 'package:pragma_design_system/pragma_design_system.dart' as app_theme;
 /// - Sistema de rutas
 /// - Soporte para múltiples idiomas
 /// - Delegados de localización
+/// - [LocalizationScope] para inyectar [AppLocalizations] en toda la app
 class MyApp extends StatelessWidget {
   /// Crea una instancia de [MyApp].
   const MyApp({super.key});
@@ -45,6 +38,12 @@ class MyApp extends StatelessWidget {
       ],
       routerConfig: appRouter,
       supportedLocales: const [Locale('en'), Locale('es')],
+      builder: (context, child) {
+        // `child` es el widget construido por MaterialApp (rutas, etc.).
+        // Envolvemos con LocalizationScope ahora que las localizaciones
+        // están disponibles en el contexto.
+        return LocalizationScope(child: child ?? const SizedBox.shrink());
+      },
     );
   }
 }

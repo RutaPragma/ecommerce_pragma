@@ -21,11 +21,13 @@
     },
     "socialButtons": [
       {
+        "indexId": 1,
         "label": "Continue with Google",
         "icon": "google",
         "onPressed": "googleLogin"
       },
       {
+        "indexId": 2,
         "label": "Continue with Google",
         "icon": "apple",
         "onPressed": "googleLogin"

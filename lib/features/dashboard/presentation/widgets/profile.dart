@@ -7,7 +7,7 @@ import 'package:pragma_design_system/pragma_design_system.dart';
 class Profile extends ConsumerWidget {
   Profile({super.key, required this.config});
 
-  final AuthPresenter presenter = AuthPresenter();
+  final AuthPresenter presenter = AuthPresenter(authService: MockAuthService());
   final Map<String, dynamic> config;
 
   @override

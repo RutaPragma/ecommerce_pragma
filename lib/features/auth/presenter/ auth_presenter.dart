@@ -7,9 +7,9 @@ import 'package:ecommerce_pragma/routes/path_routes.dart';
 import 'package:flutter/material.dart';
 
 class AuthPresenter {
-  final MockAuthService _authService = MockAuthService();
+  AuthPresenter({required MockAuthService this.authService});
 
-  AuthPresenter();
+  final MockAuthService authService;
 
   Future<void> login(
     BuildContext context,
@@ -17,7 +17,7 @@ class AuthPresenter {
     String password,
   ) async {
     try {
-      final user = await _authService.login(email, password);
+      final user = await authService.login(email, password);
       if (user != null) {
         appRouter.go(PathRoutes.dashboard);
       }
@@ -34,7 +34,7 @@ class AuthPresenter {
 
   Future<void> register(BuildContext context, Map<String, dynamic> data) async {
     try {
-      final user = await _authService.register(
+      final user = await authService.register(
         data['email'],
         data['name'],
         data['password'],
@@ -53,11 +53,11 @@ class AuthPresenter {
   }
 
   Future<void> logout() async {
-    await _authService.logout();
+    await authService.logout();
     appRouter.go(PathRoutes.auth);
   }
 
   Future<UserModel?> getCurrentUser() async {
-    return await _authService.getCurrentUser();
+    return await authService.getCurrentUser();
   }
 }

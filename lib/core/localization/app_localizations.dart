@@ -18,15 +18,26 @@ class AppLocalizations {
       AppLocalizationsDelegate();
 
   /// Obtiene la instancia de [AppLocalizations] desde el contexto.
+  ///
+  /// Retorna la instancia de [AppLocalizations] o lanza una excepción
+  /// si no se encuentra en el árbol de widgets.
   static AppLocalizations of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
+    final instance = Localizations.of<AppLocalizations>(
+      context,
+      AppLocalizations,
+    );
+    if (instance == null) {
+      throw Exception('AppLocalizations not found in widget tree');
+    }
+    return instance;
   }
 
   /// Carga el archivo de traducción correspondiente al idioma.
-  Future<bool> load() async {
-    final jsonString = await rootBundle.loadString(
-      'assets/lang/${locale.languageCode}.json',
-    );
+  Future<bool> load({String? jsonTest}) async {
+    final jsonString =
+        jsonTest ??
+        await rootBundle.loadString('assets/lang/${locale.languageCode}.json');
+
     final Map<String, dynamic> jsonMap = json.decode(jsonString);
 
     _localizedStrings = jsonMap;
