@@ -122,3 +122,7 @@ Para ejecutar los tests de integración (requiere un dispositivo/emulador conect
 ```
 flutter test integration_test/app_flow_test.dart -d <device_id>
 ```
+
+## Testing y cobertura
+
+- La guía detallada de cómo generar el reporte de cobertura con lcov (aplicación y paquetes) y la descripción de todas las suites de pruebas está en `docs/testing_y_cobertura.md`.
