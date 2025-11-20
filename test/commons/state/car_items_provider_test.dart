@@ -3,7 +3,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ecommerce_pragma/commons/state/car_items_provider.dart';
-import '../../custoMocks.dart';
+import '../../base_widget.dart';
 
 void main() {
   group('CarItemsNotifier', () {

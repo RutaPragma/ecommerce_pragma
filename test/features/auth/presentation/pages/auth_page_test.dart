@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../base_widget.dart';
-import '../../../../custoMocks.dart';
 
 /// Pruebas de la capa de presentación para [AuthPage].
 void main() {

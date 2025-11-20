@@ -13,7 +13,6 @@ import 'package:reading_api_data_dart/presentation/state/notifier/product_state.
 import 'package:reading_api_data_dart/presentation/state/notifier/products_notifier.dart';
 
 import '../../../../base_widget.dart';
-import '../../../../custoMocks.dart';
 
 void main() {
   late Override overrideLocalizationProvider;
