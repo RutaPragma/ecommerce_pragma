@@ -201,13 +201,21 @@ class FakeAppLocalizations extends AppLocalizations {
         },
         'orders': [],
         'settings': [
-          {'icon': 'lock_outline', 'title': 'Cambiar contraseña', 'onTap': ''},
-          {
+          <String, dynamic>{
+            'icon': 'lock_outline',
+            'title': 'Cambiar contraseña',
+            'onTap': '',
+          },
+          <String, dynamic>{
             'icon': 'notifications_outlined',
             'title': 'Notificaciones',
             'onTap': '',
           },
-          {'icon': 'help_outline', 'title': 'Ayuda y soporte', 'onTap': ''},
+          <String, dynamic>{
+            'icon': 'help_outline',
+            'title': 'Ayuda y soporte',
+            'onTap': '',
+          },
         ],
         'onLogout': '',
       },

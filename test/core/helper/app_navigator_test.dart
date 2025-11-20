@@ -1,26 +1,6 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:ecommerce_pragma/core/helper/app_navigator.dart';
-
-class MockRouter {
-  String? lastAction;
-  String? lastPath;
-  int popCount = 0;
-
-  void go(String path) {
-    lastAction = 'go';
-    lastPath = path;
-  }
-
-  void push(String path) {
-    lastAction = 'push';
-    lastPath = path;
-  }
-
-  void pop() {
-    lastAction = 'pop';
-    popCount++;
-  }
-}
+import 'package:ecommerce_pragma/routes/path_routes.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('AppNavigator', () {
@@ -43,5 +23,15 @@ void main() {
       expect(nav.push, isA<Function>());
       expect(nav.pop, isA<Function>());
     });
+
+    test('go y push llaman al router global sin lanzar errores', () {
+      // Arrange
+      final nav = AppNavigator();
+
+      // Act & Assert
+      expect(() => nav.go(PathRoutes.auth), returnsNormally);
+      expect(() => nav.push(PathRoutes.dashboard), returnsNormally);
+    });
+
   });
 }

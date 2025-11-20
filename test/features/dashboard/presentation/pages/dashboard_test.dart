@@ -1,4 +1,5 @@
 // test/features/dashboard/presentation/pages/dashboard_test.dart
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:ecommerce_pragma/commons/state/car_items_provider.dart';
@@ -9,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pragma_design_system/pragma_design_system.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:reading_api_data_dart/presentation/state/notifier/product_state.dart';
 import 'package:reading_api_data_dart/presentation/state/notifier/products_notifier.dart';
 
@@ -38,6 +41,20 @@ void main() {
     HttpOverrides.global = TestHttpOverrides();
     addTearDown(() {
       HttpOverrides.global = null;
+    });
+    SharedPreferences.setMockInitialValues({
+      'mock_users': [
+        jsonEncode({
+          'id': '1',
+          'email': 'profile@test.com',
+          'name': 'Profile User',
+        }),
+      ],
+      'current_user': jsonEncode({
+        'id': '1',
+        'email': 'profile@test.com',
+        'name': 'Profile User',
+      }),
     });
     fakeProductsNotifier = FakeProductsNotifier();
     fakeNavBarIndexNotifier = FakeNavBarIndexNotifier();
@@ -100,6 +117,8 @@ void main() {
     fakeNavBarIndexNotifier.setInitialIndex(2);
 
     await pumpDashboard(tester);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
 
     expect(find.byKey(const Key('dashboard_profile')), findsOneWidget);
   });
@@ -117,10 +136,14 @@ void main() {
     tester,
   ) async {
     await pumpDashboard(tester);
-
-    await tester.tap(find.text('Perfil'));
     await tester.pump();
-    await tester.pump(const Duration(milliseconds: 300));
+    await tester.pump(const Duration(milliseconds: 200));
+
+    final bottomNav = tester.widget<DSBottomNav>(
+      find.byKey(const Key('dashboard_bottom_nav')),
+    );
+    bottomNav.onItemSelected(2);
+    await tester.pump();
 
     expect(fakeNavBarIndexNotifier.lastSetValue, equals(2));
   });
