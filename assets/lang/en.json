@@ -28,7 +28,7 @@
       },
       {
         "indexId": 2,
-        "label": "Continue with Google",
+        "label": "Continue with Apple",
         "icon": "apple",
         "onPressed": "googleLogin"
       }
@@ -53,6 +53,56 @@
       "passwordTooShort": "Must be at least 8 characters",
       "confirmPasswordRequired": "Confirm the password",
       "passwordsNotMatch": "Passwords do not match"
+    },
+      "loginAccessibility": {
+      "logo": {
+        "label": "Logo",
+        "semantic": "Main icomers logo",
+        "identifier": "McCXErv8UmdGRfcAY8ecBjTZEiL4j5V",
+        "hint": "Login hint",
+        "order": 2,
+        "excludeSemantics": true
+      },
+      "title": {
+        "label": "icomers Pragma",
+        "tooltip": "Ecommerce pragma",
+        "order": 1,
+        "semantic": "This is the main title of the login screen",
+        "identifier": "McCXErv8UmdGRfcAecweBjTZEiL4j5V",
+        "excludeSemantics": true
+      },
+      "login": {
+        "emailField": {
+          "label": "Email address",
+          "tooltip": "Email e.g.: jhony@yopmail",
+          "order": 3,
+          "semantic": "Email you registered with, double tap to type",
+          "identifier": "McCXErv8UmdGRfcAeckaoeTZEiL4j5V",
+          "hint": "Greeting hint",
+          "excludeSemantics": true
+        },
+        "passwordField": {
+          "label": "Password",
+          "order": 4,
+          "semantic": "Your access key, double tap to type",
+          "identifier": "Mc<SJKrv34ndGRfcAecweBjTZEiL4j5V",
+          "excludeSemantics": true
+        },
+        "forgotPasswordText": {
+          "label": "Forgot your password?",
+          "order": 5,
+          "semantic": "Link to recover password, double tap to activate",
+          "identifier": "McWERrv34ndGRfcAecweBjTZEiL4j5V",
+          "excludeSemantics": true
+        },
+        "submitButton": {
+          "label": "Sign in",
+          "order": 6,
+          "semantic": "Button to access the platform, double tap to activate",
+          "identifier": "McCXErv8UmdGRfcAecweBjTZEiL4j5V",
+          "excludeSemantics": true
+        }
+      }
     }
   },
   "dashboard": {

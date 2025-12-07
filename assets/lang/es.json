@@ -28,7 +28,7 @@
       },
       {
         "indexId": 2,
-        "label": "Continuar con Google",
+        "label": "Continuar con Apple",
         "icon": "apple",
         "onPressed": "googleLogin"
       }
@@ -53,6 +53,57 @@
       "passwordTooShort": "Debe tener al menos 8 caracteres",
       "confirmPasswordRequired": "Confirma la contraseña",
       "passwordsNotMatch": "Las contraseñas no coinciden"
+    },
+    "loginAccessibility": {
+      "logo": {
+        "label": "Logo",
+        "semantic": "Logo principal de icomers",
+        "identifier": "McCXErv8UmdGRfcAY8ecBjTZEiL4j5V",
+        "hint": "Login hint",
+        "order": 2,
+        "excludeSemantics": true
+      },
+      "title": {
+        "label": "icomers Pragma",
+        "tooltip": "Ecommerce pragma",
+        "order": 1,
+        "semantic": "Este es el titulo principal de la pantalla de login",
+        "identifier": "McCXErv8UmdGRfcAecweBjTZEiL4j5V",
+        "excludeSemantics": true
+      },
+      "login": {
+        "emailField": {
+          "label": "Correo electrónico",
+          "tooltip": "Correo ej: jhony@yopmail",
+          "order": 3,
+          "semantic": "Correo electrónico, con el que te registraste, doble cli para escribir",
+          "identifier": "McCXErv8UmdGRfcAeckaoeTZEiL4j5V",
+          "hint": "usuario@correo.com",
+          "excludeSemantics": true
+        },
+        "passwordField": {
+          "label": "Clave",
+          "order": 4,
+          "semantic": "Tú clave de acceso, doble cli para escribir",
+          "identifier": "Mc<SJKrv34ndGRfcAecweBjTZEiL4j5V",
+           "hint": "Tu contraseña segura",
+          "excludeSemantics": true
+        },
+        "forgotPasswordText": {
+          "label": "¿Olvidaste tu contraseña?",
+          "order": 5,
+          "semantic": "Link para recupoerar contraseña, doble cli para activar",
+          "identifier": "McWERrv34ndGRfcAecweBjTZEiL4j5V",
+          "excludeSemantics": true
+        },
+        "submitButton": {
+          "label": "Inisciar sesión",
+          "order": 6,
+          "semantic": "Boton de ingreso a la plataforma, doble cli para activar",
+          "identifier": "McCXErv8UmdGRfcAecweBjTZEiL4j5V",
+          "excludeSemantics": true
+        }
+      }
     }
   },
   "dashboard": {
